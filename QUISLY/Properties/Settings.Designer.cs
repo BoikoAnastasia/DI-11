@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DI_11.Properties
+namespace QUISLY.Properties
 {
 
 

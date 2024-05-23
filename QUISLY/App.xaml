@@ -1,7 +1,7 @@
-﻿<Application x:Class="DI_11.App"
+﻿<Application x:Class="QUISLY.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:DI_11"
+             xmlns:local="clr-namespace:QUISLY"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

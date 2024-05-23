@@ -10,17 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
-namespace DI_11
+namespace QUISLY
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для SelectActionQuiz.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SelectActionQuiz : Window
     {
-        public MainWindow()
+        public SelectActionQuiz()
         {
             InitializeComponent();
         }
