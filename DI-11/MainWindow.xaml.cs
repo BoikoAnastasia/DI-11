@@ -24,5 +24,19 @@ namespace DI_11
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Vhod vhod = new Vhod();
+            vhod.Show();
+            Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Registration registration = new Registration();
+            registration.Show();
+            Close(); 
+        }
     }
 }
