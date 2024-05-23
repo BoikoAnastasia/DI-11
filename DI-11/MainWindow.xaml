@@ -29,9 +29,9 @@
         <TextBlock Grid.Column="1" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="Авторизация" VerticalAlignment="Top" Height="30" Width="125" FontSize="18" FontWeight="Black" Margin="0,115,0,0" Grid.RowSpan="2" />
         <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="100" FontSize="18" FontWeight="Black" Margin="201,21,0,0" Grid.ColumnSpan="2" Grid.Row="1" ><Run Language="ru-ru" Text="Логин"/></TextBlock>
         <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="100" FontSize="18" FontWeight="Black" Margin="201,104,0,0" Grid.ColumnSpan="2" Grid.Row="1" ><Run Language="ru-ru" Text="Пароль"/></TextBlock>
-        <TextBox Grid.Column="1" HorizontalAlignment="Center" Margin="0,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="35" Grid.Row="1" TextChanged="TextBox_TextChanged"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Center" Margin="0,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="35" Grid.Row="1"/>
-        <Button Grid.Column="1" Content="Войти" HorizontalAlignment="Left" Margin="190,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="45" Width="180" Grid.ColumnSpan="2" Background="White" Foreground="Black" FontSize="20">
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" Margin="0,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="35" Grid.Row="1" TextChanged="TextBox_TextChanged" FontSize="15"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" Margin="0,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="35" Grid.Row="1" FontSize="15"/>
+        <Button Grid.Column="1" Content="Войти" HorizontalAlignment="Left" Margin="190,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="45" Width="180" Grid.ColumnSpan="2" Background="White" Foreground="Black" FontSize="20" Click="Button_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
