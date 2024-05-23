@@ -29,26 +29,22 @@ namespace QUISLY
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Test newTest = new Test("Test1");
-            string jsonString = JsonConvert.SerializeObject( newTest );
-            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            SelectActionQuiz saq = new SelectActionQuiz();
+            saq.Show();
+            this.Close();
+            //Test newTest = new Test("Test1");
+            //string jsonString = JsonConvert.SerializeObject(newTest);
+            //string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-            //File.WriteAllText(docPath, jsonString);
-            using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine("C:\\Users\\admin\\source\\repos\\QUISLY", $"{newTest.name}.json")))
-            {
-                    outputFile.WriteLine(jsonString);
-            }
+            ////File.WriteAllText(docPath, jsonString);
+            //using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine("C:\\Users\\admin\\source\\repos\\QUISLY\\Tests", $"{newTest.name}.json")))
+            //{
+            //    outputFile.WriteLine(jsonString);
+            //}
 
-            Test tt = JsonConvert.DeserializeObject<Test>(jsonString);
-            ArrayList newArray = tt.questions;
-            Question[] qu = new Question[tt.questions.Count];
-            int i = 0;
-            foreach (object q in tt.questions)
-            {
-                i++;
-                
-            }
-            i = 0;
+            //Test tt = JsonConvert.DeserializeObject<Test>(jsonString);
+            //ArrayList newArray = tt.questions;
+            //Question[] qu = new Question[tt.questions.Count];
         }
     }
 }

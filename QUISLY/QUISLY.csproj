@@ -64,6 +64,9 @@
     <Compile Include="OpenQuiz.xaml.cs">
       <DependentUpon>OpenQuiz.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QuestionCard.xaml.cs">
+      <DependentUpon>QuestionCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectActionQuiz.xaml.cs">
       <DependentUpon>SelectActionQuiz.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="OpenQuiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuestionCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

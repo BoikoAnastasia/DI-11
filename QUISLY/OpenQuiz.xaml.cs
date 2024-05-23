@@ -14,14 +14,68 @@ using System.Windows.Shapes;
 
 namespace QUISLY
 {
-    /// <summary>
-    /// Логика взаимодействия для OpenQuiz.xaml
-    /// </summary>
+    
     public partial class OpenQuiz : Window
     {
-        public OpenQuiz()
+        Test currentTest;
+        int currentIndex = 0;
+        bool isAnsver = false;
+        public OpenQuiz(Test currentTest)
         {
             InitializeComponent();
+            this.currentTest = currentTest;
+            testName.Text = currentTest.name;
+            questionText.Text = $"{currentTest.questions[currentIndex].questionName}\n{currentTest.questions[currentIndex].question}";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(currentIndex <= 0))
+            {
+                currentIndex--;
+                questionText.Text = $"{currentTest.questions[currentIndex].questionName}\n{currentTest.questions[currentIndex].question}";
+                isAnsver = false;
+            }
+            else {
+                questionText.Text = $"{currentTest.questions[currentIndex - 1].questionName}\n{currentTest.questions[currentIndex - 1].question}";
+                isAnsver = false;
+                currentIndex = currentTest.questions.Count - 1;
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (!isAnsver)
+            {
+                questionText.Text = $"Ответ: {currentTest.questions[currentIndex].answer}";
+                isAnsver = true;
+            }
+            else {
+                questionText.Text = $"{currentTest.questions[currentIndex].questionName}\n{currentTest.questions[currentIndex].question}";
+                isAnsver = false;
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if(!(currentIndex >= currentTest.questions.Count - 1 ))
+            {
+                currentIndex++;
+                questionText.Text = $"{currentTest.questions[currentIndex].questionName}\n{currentTest.questions[currentIndex].question}";
+                isAnsver = false;
+            } else {
+                currentIndex = 0;
+                questionText.Text = $"{currentTest.questions[0].questionName}\n{currentTest.questions[0].question}";
+                isAnsver = false;
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            SelectActionQuiz selectActionQuiz = new SelectActionQuiz();
+            selectActionQuiz.Show();
+            this.Close();
         }
     }
+
 }

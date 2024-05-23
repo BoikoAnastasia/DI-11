@@ -5,9 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QUISLY"
         mc:Ignorable="d"
-        Title="OpenQuiz" Height="450" Width="800">
-    <Grid>
-        <TextBlock x:Name="TestQuizText">dsds</TextBlock>
-        
+           Title="MainWindow" Height="600" Width="800">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="7" />
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FF5474E5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="189*"></ColumnDefinition>
+            <ColumnDefinition Width="211*"></ColumnDefinition>
+            <ColumnDefinition Width="203*"></ColumnDefinition>
+            <ColumnDefinition Width="197*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="73*"></RowDefinition>
+            <RowDefinition Height="92*"></RowDefinition>
+            <RowDefinition Height="54*"></RowDefinition>
+            <RowDefinition Height="73*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="testName" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Foreground="White">TestName</TextBlock>
+        <Border Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Background="White" Margin="0,146,0,133">
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock x:Name="questionText" Foreground="#FF5D5D5D" FontSize="20">Question</TextBlock>
+            </TextBlock>
+        </Border>
+        <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Background="White" Foreground="#FF565656" Click="Button_Click" Margin="150,50,150,51">
+            <TextBlock FontSize="30">←</TextBlock>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Background="White" Foreground="#FF565656" Click="Button_Click_1" Margin="107,50,107,51">
+            <TextBlock FontSize="20">Показать ответ</TextBlock>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Background="White" Foreground="#FF565656" Click="Button_Click_2" Margin="150,50,150,51">
+            <TextBlock FontSize="30">→</TextBlock>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="1" Background="White" Foreground="#FF565656" Click="Button_Click_3" Panel.ZIndex="10" Margin="10,10,79,126">
+            <TextBlock FontSize="25">Выйти</TextBlock>
+        </Button>
     </Grid>
 </Window>

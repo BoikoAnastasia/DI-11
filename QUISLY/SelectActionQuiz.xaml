@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QUISLY"
         mc:Ignorable="d"
-        Title="SelectActionQuiz" Height="450" Width="800">
-    <Grid>
-        <TextBlock x:Name="TestQuizText">dsds</TextBlock>
+        Title="SelectAction" Height="550" Width="800">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="7" />
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FF5474E5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="63*"></ColumnDefinition>
+            <ColumnDefinition Width="37*"></ColumnDefinition>
+            <ColumnDefinition Width="37*"></ColumnDefinition>
+            <ColumnDefinition Width="63*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="80" Foreground="White" Height="106" Width="260">QUIZLY</TextBlock>
+        <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Height="45" Width="200" Background="White" Foreground="#FF565656" Click="Button_Click_1">Создать</Button>
+        <Button Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Height="45" Width="200" Background="White" Foreground="#FF565656" Click="Button_Click">Открыть</Button>
+        <TextBlock x:Name="TestName">sss</TextBlock>
     </Grid>
 </Window>

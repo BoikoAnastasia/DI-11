@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace QUISLY
 {
-    internal class Test
+   public class Test
     {
         public string name = "";
-        public ArrayList questions = new ArrayList();
+        public List<Question> questions = new List<Question>();
     
-        public Test(string n) { 
+        public Test(string n, List<Question> questions) { 
             name = n;
-            questions.Add(new Question(0, "sdads", "s"));
-            questions.Add(new Question(1, "sdads", "s"));
+            this.questions = questions;
         }
     }
 }

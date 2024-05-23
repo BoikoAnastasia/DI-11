@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace QUISLY
 {
-    internal class Question
+    public class Question
     {
         public int id;
         public string question;
         public string answer;
-        public Question(int numberQ, string question, string answer) {
+        public string questionName;
+        public Question(int numberQ,string questionName, string question, string answer) {
             id =numberQ;
+            this.questionName = questionName;
             this.question = question;
-           this.answer = answer;
+            this.answer = answer;
         }
     }
 }
