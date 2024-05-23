@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DI_11"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="650">
     <Grid>
-        <Button Background="AliceBlue">хай</Button>
+        <Image Source="Image/scale_1200.jpeg" Height="450" Width="800" Grid.ColumnSpan="4" Grid.RowSpan="3"></Image>
+        <Button Grid.Row="2" Grid.Column="0" Height="40" Width="140" Grid.ColumnSpan="2">Войти</Button>
+        <Button Grid.Row="2" Grid.Column="1" Height="40" Width="140" Grid.ColumnSpan="2">Зарегистрироваться</Button>
+        <TextBox Grid.Row="1" Grid.Column="1" Height="40" Width="200" Margin="10,0,6,104">Login</TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" Height="40" Width="200" Margin="6,104,10,0" TextChanged="TextBox_TextChanged">Password</TextBox>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
     </Grid>
 </Window>
