@@ -7,6 +7,35 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2" Margin="1,0,0,0" Background="Black" Grid.RowSpan="3">
+            <TextBox TextWrapping="Wrap" Text="Телефон или Email" Margin="248,91,248,296" TextChanged="TextBox_TextChanged" FontSize ="15" Background="Gray" />
+
+        </Border>
+
+        <Button Grid.Column="1" Margin="573,10,20,82" Content="Contact us" Background="Black" Foreground="Black">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBlock  HorizontalAlignment="Left" Margin="306,39,0,0" TextWrapping="Wrap" Text="Sign in to Malibu" VerticalAlignment="Top" Foreground="White" FontSize="25" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="482,14,0,0" TextWrapping="Wrap" Text="Sing in" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="531,14,0,0" TextWrapping="Wrap" Text="FAQ" VerticalAlignment="Top" Foreground="White"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="248,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="304" Grid.ColumnSpan="2" Height="80" Background="Gray" Password="" />
+        <Button Content="Войти" HorizontalAlignment="Left"   Margin="248,10,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="12.733,2.675" Grid.ColumnSpan="2" Width="304" Click="Button_Click" Height="30" Background="GreenYellow"/>
+        <RadioButton Content="Сохранить пользователя?" HorizontalAlignment="Left" Margin="248,114,0,0" Grid.Row="1" VerticalAlignment="Top" Height="40" Grid.RowSpan="2" Background="White"/>
     </Grid>
 </Window>
+
+
