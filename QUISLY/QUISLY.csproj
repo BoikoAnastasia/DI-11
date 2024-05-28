@@ -67,6 +67,11 @@
     <Compile Include="QuestionCard.xaml.cs">
       <DependentUpon>QuestionCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QUIZLYDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QUIZLYDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SelectActionQuiz.xaml.cs">
       <DependentUpon>SelectActionQuiz.xaml</DependentUpon>
     </Compile>
@@ -123,6 +128,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="QUIZLYDataSet.xsc">
+      <DependentUpon>QUIZLYDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QUIZLYDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QUIZLYDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QUIZLYDataSet.xss">
+      <DependentUpon>QUIZLYDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
