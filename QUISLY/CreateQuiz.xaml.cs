@@ -31,15 +31,18 @@ namespace QUISLY
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            i++;
-            Question newq = new Question(0, questionName.Text, answersVariant.Text, answerText.Text);
-            questions.Add(newq);
-            Frame addfr = new Frame();
-            addfr.Content = new QuestionCard(newq.question);
-            DataGridy.Children.Add(addfr);
-            questionName.Text = "";
-            answersVariant.Text = "";
-            answerText.Text = "";
+            if (!(answersVariant.Text.Equals("") || answerText.Text.Equals("") || questionName.Text.Equals("")))
+            {
+                i++;
+                Question newq = new Question(0, questionName.Text, answersVariant.Text, answerText.Text);
+                questions.Add(newq);
+                Frame addfr = new Frame();
+                addfr.Content = new QuestionCard(newq.question, newq.questionName);
+                DataGridy.Children.Add(addfr);
+                questionName.Text = "";
+                answersVariant.Text = "";
+                answerText.Text = "";
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

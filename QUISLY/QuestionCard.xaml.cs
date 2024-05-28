@@ -20,10 +20,11 @@ namespace QUISLY
     /// </summary>
     public partial class QuestionCard : Page
     {
-        public QuestionCard(string question)
+        public QuestionCard(string question, string questionNames)
         {
             InitializeComponent();
             questionText.Text = question;
+            questionName.Text = questionNames;
         }
     }
 }

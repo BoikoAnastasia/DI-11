@@ -8,6 +8,11 @@
       d:DesignHeight="50" d:DesignWidth="345"
       Title="QuestionCard">
     <Grid Background="White">
-        <TextBlock x:Name="questionText" Foreground="Gray" FontSize="20" VerticalAlignment="Center">asdasd</TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="questionName" Foreground="Gray" FontSize="20" VerticalAlignment="Center">asdasd</TextBlock>
+        <TextBlock x:Name="questionText" Foreground="Gray" Grid.Row="1" FontSize="10" VerticalAlignment="Center">asdasd</TextBlock>
     </Grid>
 </Page>
