@@ -25,8 +25,9 @@ namespace QUISLY
     {
 
         string[] userNames;
-        string[] userPasswords;
+        List<string> users = new List<string>();
         bool userFind = false;
+        int countUsers = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,19 +37,24 @@ namespace QUISLY
         {
             SqlConnection conn = new SqlConnection(@"Data Source=3218EC05\SQLEXPRESS; Initial Catalog=QUIZLY; Integrated Security=True");
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select login, password from Users", conn);
+            SqlCommand cmd = new SqlCommand("select login from Users", conn);
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                userNames = reader[0].ToString().Split();
-                userPasswords = reader[1].ToString().Split();
+                users.Add( reader[0].ToString());
             }
             reader.Close();
 
-            for (int i = 0; i < userNames.Length; i++) {
-                if (!userNames[i].Equals(loginBox.Text)) {
+            for (int i = 0; i < users.Count(); i++)
+            {
+                if (!users[i].Equals(loginBox.Text))
+                {
                     userFind = false;
-                } else userFind = true;
+                }
+                else {
+                    userFind = true;
+                    break;
+                    }
             }
             if (userFind)
             {
@@ -56,10 +62,10 @@ namespace QUISLY
                 saq.Show();
                 this.Close();
             }
-            else {
-                SqlCommand cmd2 = new SqlCommand($"INSERT INTO Users VALUES ({userNames.Length + 1},'{loginBox.Text}', '{passwordBox.Text}')", conn);
+            else
+            {
+                SqlCommand cmd2 = new SqlCommand($"INSERT INTO Users VALUES ({users.Count() + 1},'{loginBox.Text}', '{passwordBox.Text}')", conn);
                 cmd2.ExecuteNonQuery();
-                //reader2.Close();
                 SelectActionQuiz saq = new SelectActionQuiz();
                 saq.Show();
                 this.Close();
@@ -67,7 +73,7 @@ namespace QUISLY
 
 
 
-        
+
             //Test newTest = new Test("Test1");
             //string jsonString = JsonConvert.SerializeObject(newTest);
             //string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
