@@ -1,0 +1,35 @@
+﻿<Window x:Class="DI_11.Test"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DI_11"
+        mc:Ignorable="d"
+        Title="Test" Height="566" Width="381">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Background="Blue" CornerRadius="40" Opacity="0.50" BorderBrush="Black" Margin="0,0,0,27"></Border>
+        <TextBlock TextWrapping="Wrap" Text="Создание теста" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" Margin="0,21,0,0"/>
+        <Label Content="Название теста" HorizontalAlignment="Left" Margin="26,0,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Top" Width="200" Height="24" Margin="29,25,0,0"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Margin="29,68,152,93" Grid.RowSpan="2"/>
+        <TextBox x:Name="name_Копировать" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Top" Width="200" Height="24" Margin="29,90,0,0"/>
+        <Label Content="Вопрос" HorizontalAlignment="Left" Margin="29,64,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <TextBox x:Name="name_Копировать1" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Top" Width="200" Height="24" Margin="29,137,0,0" Grid.RowSpan="2"/>
+        <Label Content="Ответ" HorizontalAlignment="Left" Margin="29,111,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="234,70,0,0" Grid.Row="1" VerticalAlignment="Top"  Foreground="White" Background="#FF175BE1"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="234,117,0,0" Grid.Row="1" VerticalAlignment="Top"  Foreground="White" Background="#FF175BE1"/>
+        <Button Content="Сохранить" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Padding="5" FontSize="24" Foreground="White" Background="#FF175BE1" RenderTransformOrigin="0.539,-0.171"  Width="165" Height="57" Margin="0,114,0,0" Grid.RowSpan="2" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>
