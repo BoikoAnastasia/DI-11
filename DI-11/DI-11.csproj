@@ -113,5 +113,11 @@
   <ItemGroup>
     <Resource Include="icons8-помощь-24.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8-пользователь-мужчина-в-кружке-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8-поиск-50.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

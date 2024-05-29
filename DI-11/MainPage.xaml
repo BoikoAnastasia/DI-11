@@ -31,7 +31,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.ColumnSpan="2">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="200" Margin="0,0,150,0">
             <Button Background="Transparent">
                 <Image Height="30" Source="/icons8-список-64.png" />
             </Button>
@@ -42,8 +42,21 @@
             <Image Height="24" Source="/icons8-помощь-24.png" Stretch="Fill" Width="24"/>
         </StackPanel>
         <StackPanel Grid.Column="1"/>
-        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Margin="63,22,52,14">
-            
-        </TextBox>
+        <Border Padding="5" BorderThickness="1" Background="White" CornerRadius="20" Grid.Column="1" Grid.ColumnSpan="2" Height="30" Width="250">
+            <StackPanel Orientation="Horizontal" Background="Transparent">
+                <TextBox TextWrapping="Wrap" TextChanged="TextBox_TextChanged" Background="Transparent" BorderBrush="Transparent" Margin="0,0,20,0" Width="200" Height="18"/>
+                <Image Source="icons8-поиск-50.png" Width="20" Height="20"/>
+            </StackPanel>
+        </Border>
+        <StackPanel Grid.Column="3" Grid.ColumnSpan="2" Height="30" Width="150" Orientation="Horizontal">
+            <Image Grid.Column="3" Width="30" Height="30" Source="/icons8-пользователь-мужчина-в-кружке-48.png" />
+            <Button VerticalAlignment="Center" Height="25" Background="Transparent" BorderBrush="Transparent" FontSize="15" FontFamily="Cambria" Click="Button_Click" Content="Name User"/>
+        </StackPanel>
+        <Button Content="Customers" Grid.Row="2" Background="Transparent" BorderBrush="Transparent" FontSize="18" FontFamily="Cambria" />
+        <Button Content="Orders" Grid.Row="3" Background="Transparent" BorderBrush="Transparent" FontSize="18" FontFamily="Cambria"/>
+        <Button Content="Contacts" Grid.Row="4" Background="Transparent" BorderBrush="Transparent" FontSize="18" FontFamily="Cambria"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="4" Width="600"/>
+
+
     </Grid>
 </Window>
