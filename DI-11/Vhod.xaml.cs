@@ -25,30 +25,39 @@ namespace DI_11
             InitializeComponent();
         }
 
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if(name.Text.Length > 0)
             {
-                    if(name.Text.Equals("admin"))
+                if (password.Password != null)
+                {
+
+
+                    if (name.Text == "admin")
                     {
-                        if (password.ToString().Equals("111"))
+                        if (password.Password == "111")
                         {
-                            HomePage homePage = new HomePage(); 
+                            HomePage homePage = new HomePage();
                             homePage.Show();
                             Close();
                         }
-                        else
-                        {
-                            MessageBox.Show("Нет такого пользователя");
-                        }
-                   
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Нет такого пользователя");
+                    }
                 }
+
 
             }
             else
             {
                 MessageBox.Show("Введите данные");
             }
+
         }
     }
 }
