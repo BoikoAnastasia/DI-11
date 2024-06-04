@@ -18,8 +18,8 @@
         <Label Content="Имя" HorizontalAlignment="Left" Margin="90,31,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <TextBox x:Name="name" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Center" Width="200" Height="24"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="90,106,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="password" HorizontalAlignment="Center"  Grid.Row="2" BorderBrush="Black" VerticalAlignment="Top"  Width="200" Height="24"/>
-        <Button Content="Войти" Click="Button_Click" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Padding="5" FontSize="24" Foreground="White" Background="#FF175BE1" RenderTransformOrigin="0.5,0.5"  Width="165" Height="57" >
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Center"  Grid.Row="2" BorderBrush="Black" VerticalAlignment="Top"  Width="200" Height="24"/>
+        <Button Content="Войти" Click="LoginButton_Click" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Padding="5" FontSize="24" Foreground="White" Background="#FF175BE1" RenderTransformOrigin="0.5,0.5"  Width="165" Height="57" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>

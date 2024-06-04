@@ -23,5 +23,24 @@ namespace DI_11
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Vopros vopros = new Vopros();
+            vopros.Show();
+            Close();
+        }
+        private void Sozdat(object sender, RoutedEventArgs e)
+        {
+            Test test = new Test();
+            test.Show();
+            Close();
+        }
+        private void Othenki(object sender, RoutedEventArgs e)
+        {
+            Othenki othenki = new Othenki();
+            othenki.Show();
+            Close();
+        }
     }
 }

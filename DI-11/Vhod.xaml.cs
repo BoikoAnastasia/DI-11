@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,45 +20,57 @@ namespace DI_11
     /// </summary>
     public partial class Vhod : Window
     {
-       
+        private const string ConnectionString = "YourConnectionStringHere";
+
         public Vhod()
         {
             InitializeComponent();
         }
 
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
+      
+
+        private bool ValidateUser(string username, string password)
         {
-            if(name.Text.Length > 0)
+            
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                if (password.Password != null)
-                {
+                string passwordd = PasswordBox.Password;
+                string usernname = name.Text;
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Username", usernname);
+                command.Parameters.AddWithValue("@Password", passwordd);
+                int count = (int)command.ExecuteScalar();
+                return count > 0;
 
 
-                    if (name.Text == "admin")
-                    {
-                        if (password.Password == "111")
-                        {
-                            HomePage homePage = new HomePage();
-                            homePage.Show();
-                            Close();
-                        }
 
+            }
+        }
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Нет такого пользователя");
-                    }
-                }
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            string username = name.Text;
+            string password = PasswordBox.Password;
 
-
+            if (ValidateUser(username, password))
+            {
+                MessageBox.Show("Вход выполнен успешно для пользователя: " + username);
+                HomePage homePage = new HomePage();
+                homePage.Show();
+                Close();
+                
             }
             else
             {
-                MessageBox.Show("Введите данные");
+                MessageBox.Show("Неверное имя пользователя или пароль");
             }
-
         }
+
+
+
+
+
     }
 }

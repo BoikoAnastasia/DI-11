@@ -16,17 +16,17 @@
         <Border Background="Blue" CornerRadius="40" Opacity="0.50" BorderBrush="Black" Margin="0,0,0,27"></Border>
         <TextBlock TextWrapping="Wrap" Text="Регистрация" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" Margin="0,21,0,0"/>
         <Label Content="Имя" HorizontalAlignment="Left" Margin="90,31,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Center" Width="200" Height="24"/>
+        <TextBox x:Name="name" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Center" Width="200" Height="24"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="90,99,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <PasswordBox HorizontalAlignment="Center"  Grid.Row="1" BorderBrush="Black" VerticalAlignment="Top"  Width="200" Height="24" Margin="0,125,0,0" Grid.RowSpan="2"/>
-        <Button Content="Зарегистрироваться" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Padding="5" FontSize="24" Foreground="White" Background="#FF175BE1" RenderTransformOrigin="0.5,0.5"  Width="241" Height="57" >
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Center"  Grid.Row="1" BorderBrush="Black" VerticalAlignment="Top"  Width="200" Height="24" Margin="0,125,0,0" Grid.RowSpan="2"/>
+        <Button Click="Button_Click" Content="Зарегистрироваться" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Padding="5" FontSize="24" Foreground="White" Background="#FF175BE1" RenderTransformOrigin="0.5,0.5"  Width="241" Height="57" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBox HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Center" Width="200" Height="24"/>
+        <TextBox x:Name="group" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Center" Width="200" Height="24"/>
         <Label Content="Группа" HorizontalAlignment="Left" Margin="90,31,0,0" Grid.Row="2" VerticalAlignment="Top"/>
     </Grid>
 </Window>
