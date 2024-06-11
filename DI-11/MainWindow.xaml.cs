@@ -36,5 +36,10 @@ namespace DI_11
             MainPage.Show();    
             this.Close();
         }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

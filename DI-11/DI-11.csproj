@@ -58,6 +58,11 @@
     <Compile Include="UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="_ZelebobaCP_22_05_24DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_ZelebobaCP_22_05_24DataSet.xsd</DependentUpon>
+    </Compile>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +108,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="_ZelebobaCP_22_05_24DataSet.xsc">
+      <DependentUpon>_ZelebobaCP_22_05_24DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_ZelebobaCP_22_05_24DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_ZelebobaCP_22_05_24DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_ZelebobaCP_22_05_24DataSet.xss">
+      <DependentUpon>_ZelebobaCP_22_05_24DataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

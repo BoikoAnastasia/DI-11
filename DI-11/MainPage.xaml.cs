@@ -26,7 +26,9 @@ namespace DI_11
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            var userPage = new UserPage();
+            userPage.Show();
+            this.Close();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

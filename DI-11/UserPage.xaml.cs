@@ -18,11 +18,21 @@ namespace DI_11
     /// <summary>
     /// Логика взаимодействия для UserPage.xaml
     /// </summary>
-    public partial class UserPage : Page
+    public partial class UserPage : Window
     {
         public UserPage()
         {
             InitializeComponent();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
