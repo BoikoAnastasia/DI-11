@@ -49,10 +49,10 @@ namespace QUISLY
         {
             Test newTest = new Test(nameBox.Text, questions);
             string jsonString = JsonConvert.SerializeObject(newTest);
-            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName + "\\Tests";
 
-            //File.WriteAllText(docPath, jsonString);
-            using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine("C:\\Users\\admin\\source\\repos\\QUISLY\\Tests", $"{newTest.name}.json")))
+            using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(projectDirectory, $"{newTest.name}.json")))
             {
                 outputFile.WriteLine(jsonString);
             }
