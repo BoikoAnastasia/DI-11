@@ -1,53 +1,108 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Collections.Generic;
 
 namespace DI_11
 {
-    /// <summary>
-    /// Логика взаимодействия для Vopros.xaml
-    /// </summary>
+    public class TestContext : DbContext
+    {
+        public DbSet<Question> Questions { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Data Source=LAPTOP-V0AGQKUF\\SLAUUUIK;Initial Catalog=Test;Integrated Security=True;");
+        }
+    }
+
+    public class Question
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public List<Answer> Answers { get; set; } = new List<Answer>(); 
+        public string CorrectAnswer { get; set; }
+    }
+
+    public class Answer
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+    }
+
     public partial class Vopros : Window
     {
-        public Vopros()
+        private TestContext _context;
+        private int _score = 0;
+        private int _questionIndex = 0;
+        private List<Question> _questions;
+
+        public Vopros(TestContext context)
         {
+            _context = context;
             InitializeComponent();
-        }
 
-        private TestContext _context = new TestContext();
-        private Test _currentTest;
-        private int _currentQuestionIndex;
-
-        private void LoadTest(int testId)
-        {
-            _currentTest = _context.Test.Include(t => t.Questions).ThenInclude(q => q.Answers).FirstOrDefault(t => t.Id == testId);
-            _currentQuestionIndex = 0;
-            DisplayCurrentQuestion();
-        }
-
-        private void DisplayCurrentQuestion()
-        {
-            if (_currentTest != null && _currentQuestionIndex < _currentTest.Questions.Count)
+            try
             {
-                var currentQuestion = _currentTest.Questions.ElementAt(_currentQuestionIndex);
+                _questions = _context.Questions
+                    .Include(q => q.Answers) 
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при загрузке вопросов: {ex.Message}");
+            }
+
+            DisplayQuestion();
+        }
+
+        private void DisplayQuestion()
+        {
+            if (_questionIndex < _questions.Count)
+            {
+                var question = _questions[_questionIndex];
+                questionTextBlock.Text = question.Text;
+
+                answersListBox.Items.Clear();
+
+                foreach (var answer in question.Answers)
+                {
+                    answersListBox.Items.Add(answer.Text);
+                }
+            }
+            else
+            {
+                ShowResult();
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ShowResult()
         {
-            _currentQuestionIndex++;
-            DisplayCurrentQuestion();
+            MessageBox.Show($"Тест завершен. Ваш итоговый балл: {_score} из {_questions.Count}");
+            Close();
         }
 
+        private void AnswerButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Получаем выбранный ответ из ListBox
+            string userAnswer = answersListBox.SelectedItem?.ToString() ?? string.Empty;
+
+            var question = _questions[_questionIndex];
+
+            if (userAnswer.ToLower() == question.CorrectAnswer.ToLower())
+            {
+                MessageBox.Show("Правильно!");
+                _score++;
+            }
+            else
+            {
+                MessageBox.Show("Неправильно. Правильный ответ: " + question.CorrectAnswer);
+            }
+
+            _questionIndex++;
+            answersListBox.Items.Clear();
+            DisplayQuestion();
+        }
     }
 }

@@ -1,0 +1,44 @@
+﻿<Window x:Class="DI_11.Testing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DI_11"
+        mc:Ignorable="d"
+        Title="Testing" Height="566" Width="381">
+    <Grid RenderTransformOrigin="0.504,0.613">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Background="Blue" CornerRadius="40" Opacity="0.50" BorderBrush="Black" Margin="0,0,0,60"></Border>
+        <TextBlock TextWrapping="Wrap" Text="Создание теста" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" Margin="0,21,0,0"/>
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Margin="10">
+            <TextBlock Text="Введите название теста:"/>
+            <TextBox x:Name="name" Margin="0,5,0,15"/>
+            <TextBlock Text="Введите вопрос:"/>
+            <TextBox x:Name="name_one" Margin="0,5,0,5"/>
+            <TextBlock Text="Правильный ответ:"/>
+            <TextBox x:Name="correctAnswerTextBox" Margin="0,5,0,5"/>
+            <TextBlock Text="Неправильные ответы:"/>
+            <TextBox x:Name="incorrectAnswer1TextBox" Margin="0,5,0,5"/>
+            <TextBox x:Name="incorrectAnswer2TextBox" Margin="0,5,0,5"/>
+            <TextBox x:Name="incorrectAnswer3TextBox" Margin="0,5,0,5"/>
+            <Button Content="Добавить вопрос" Click="Button_Click"  Width="141" Height="30" HorizontalAlignment="Center" Margin="0,10,0,0" Foreground="White" Background="#FF175BE1">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+            </Button>
+        </StackPanel>
+        <Button Content="Сохранить" Click="Button_Click_1"  HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Padding="5" FontSize="24" Foreground="White" Background="#FF175BE1" RenderTransformOrigin="0.539,-0.171"  Width="165" Height="57" Margin="0,114,0,0" Grid.RowSpan="2" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

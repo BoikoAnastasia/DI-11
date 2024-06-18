@@ -20,7 +20,7 @@ namespace DI_11
     /// </summary>
     public partial class Registration : Window
     {
-        private const string ConnectionString = "YourConnectionStringHere";
+        private const string ConnectionString = "Data Source=LAPTOP-V0AGQKUF\\SLAUUUIK;Initial Catalog=Test;Integrated Security=True";
         public Registration()
         {
             InitializeComponent();
@@ -31,24 +31,21 @@ namespace DI_11
             string username = name.Text;
             string groupName = group.Text;
             string password = PasswordBox.Password;
-
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                string userQuery = "INSERT INTO Users (Username, Password, GroupId) VALUES (@Username, @Password, (SELECT GroupId FROM Groups WHERE GroupName = @GroupName))";
+                string userQuery = "INSERT INTO Users (Username, Password, GroupName) VALUES (@Username, @Password, @GroupName)";
                 SqlCommand userCommand = new SqlCommand(userQuery, connection);
                 userCommand.Parameters.AddWithValue("@Username", username);
                 userCommand.Parameters.AddWithValue("@Password", password);
                 userCommand.Parameters.AddWithValue("@GroupName", groupName);
                 userCommand.ExecuteNonQuery();
-
-                string groupQuery = "IF NOT EXISTS (SELECT 1 FROM Groups WHERE GroupName = @GroupName) INSERT INTO Groups (GroupName) VALUES (@GroupName)";
-                SqlCommand groupCommand = new SqlCommand(groupQuery, connection);
-                groupCommand.Parameters.AddWithValue("@GroupName", groupName);
-                groupCommand.ExecuteNonQuery();
             }
-
             MessageBox.Show("Пользователь зарегистрирован: " + username + " в группе: " + groupName);
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
         }
     }
 }
+

@@ -14,21 +14,24 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Border Background="Blue" CornerRadius="40" Opacity="0.50" BorderBrush="Black" Margin="0,0,0,27"></Border>
-        <TextBlock TextWrapping="Wrap" Text="Вопрос 1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" Margin="0,21,0,0"/>
-        <Button Content="Далее" Click="Button_Click" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Padding="5" FontSize="24" Foreground="White" Background="#FF175BE1" RenderTransformOrigin="0.5,0.5"  Width="165" Height="57" >
+        <TextBlock TextWrapping="Wrap" x:Name="questionTextBlock" Text="Вопрос 1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" Margin="0,21,0,0"/>
+        <Button Content="Далее" Click="AnswerButton_Click"  HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Padding="5" FontSize="24" Foreground="White" Background="#FF175BE1" RenderTransformOrigin="0.5,0.5"  Width="165" Height="57" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="115,47,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="165" Height="21" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="115,92,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="165" Height="21" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="115,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="165" Height="21" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="115,56,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="165" Height="21" TextAlignment="Center"/>
-        <RadioButton  HorizontalAlignment="Left" Margin="75,47,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <RadioButton  HorizontalAlignment="Left" Margin="75,92,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <RadioButton  HorizontalAlignment="Left" Margin="75,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-        <RadioButton  HorizontalAlignment="Left" Margin="75,60,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <ListBox x:Name="answersListBox" Grid.Row="1" Margin="10,61,10,97" FontSize="14" Grid.RowSpan="2" HorizontalAlignment="Center">
+            <ListBoxItem>Ответ 1</ListBoxItem>
+            <ListBoxItem>Ответ 2</ListBoxItem>
+            <ListBoxItem>Ответ 3</ListBoxItem>
+            <ListBoxItem>Ответ 4</ListBoxItem>
+
+        </ListBox>
+        <RadioButton  HorizontalAlignment="Left" Margin="115,68,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <RadioButton  HorizontalAlignment="Left" Margin="115,93,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <RadioButton  HorizontalAlignment="Left" Margin="115,113,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <RadioButton  HorizontalAlignment="Left" Margin="115,137,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2"/>
     </Grid>
 </Window>

@@ -24,15 +24,17 @@ namespace DI_11
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Open(object sender, RoutedEventArgs e)
         {
-            Vopros vopros = new Vopros();
+            TestContext dbContext = new TestContext(); // Создаем экземпляр TestDbContext
+            Vopros vopros = new Vopros(dbContext); // Передаем dbContext через конструктор
             vopros.Show();
             Close();
         }
+
         private void Sozdat(object sender, RoutedEventArgs e)
         {
-            Test test = new Test();
+            Testing test = new Testing();
             test.Show();
             Close();
         }
@@ -42,5 +44,7 @@ namespace DI_11
             othenki.Show();
             Close();
         }
+
+        
     }
 }

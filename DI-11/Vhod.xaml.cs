@@ -18,34 +18,27 @@ namespace DI_11
     /// <summary>
     /// Логика взаимодействия для Vhod.xaml
     /// </summary>
+    using System.Data.SqlClient;
+
     public partial class Vhod : Window
     {
-        private const string ConnectionString = "YourConnectionStringHere";
-
+        private const string ConnectionString = "Data Source=LAPTOP-V0AGQKUF\\SLAUUUIK;Initial Catalog=Test;Integrated Security=True";
         public Vhod()
         {
             InitializeComponent();
         }
 
-      
-
         private bool ValidateUser(string username, string password)
         {
-            
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                string passwordd = PasswordBox.Password;
-                string usernname = name.Text;
                 connection.Open();
                 string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Username", usernname);
-                command.Parameters.AddWithValue("@Password", passwordd);
+                command.Parameters.AddWithValue("@Username", username);
+                command.Parameters.AddWithValue("@Password", password);
                 int count = (int)command.ExecuteScalar();
                 return count > 0;
-
-
-
             }
         }
 
@@ -53,24 +46,18 @@ namespace DI_11
         {
             string username = name.Text;
             string password = PasswordBox.Password;
-
             if (ValidateUser(username, password))
             {
                 MessageBox.Show("Вход выполнен успешно для пользователя: " + username);
                 HomePage homePage = new HomePage();
                 homePage.Show();
                 Close();
-                
             }
             else
             {
                 MessageBox.Show("Неверное имя пользователя или пароль");
             }
         }
-
-
-
-
-
     }
 }
+
