@@ -10,31 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace DI_11
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для BlackWin.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BlackWin : Window
     {
-        public MainWindow()
+        public BlackWin()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            BlackWin blackWin = new BlackWin();
-            blackWin.Show();
-            this.Close();
         }
     }
 }
