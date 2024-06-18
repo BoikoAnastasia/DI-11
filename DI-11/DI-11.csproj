@@ -55,19 +55,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Dispatches.xaml.cs">
-      <DependentUpon>Dispatches.xaml</DependentUpon>
+    <Compile Include="AddTask.xaml.cs">
+      <DependentUpon>AddTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoElement.xaml.cs">
+      <DependentUpon>DoElement.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryChecks.xaml.cs">
       <DependentUpon>InventoryChecks.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Recipients.xaml.cs">
-      <DependentUpon>Recipients.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Stocks.xaml.cs">
       <DependentUpon>Stocks.xaml</DependentUpon>
     </Compile>
-    <Page Include="Dispatches.xaml">
+    <Compile Include="TaskInfo.xaml.cs">
+      <DependentUpon>TaskInfo.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AddTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -94,11 +101,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Recipients.xaml">
+    <Page Include="Stocks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Stocks.xaml">
+    <Page Include="TaskInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

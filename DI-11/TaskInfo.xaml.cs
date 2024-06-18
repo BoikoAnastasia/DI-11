@@ -15,13 +15,15 @@ using System.Windows.Shapes;
 namespace DI_11
 {
     /// <summary>
-    /// Логика взаимодействия для Recipients.xaml
+    /// Логика взаимодействия для TaskInfo.xaml
     /// </summary>
-    public partial class Recipients : Window
+    public partial class TaskInfo : Window
     {
-        public Recipients()
+        public TaskInfo(string taskName, string taskInfo)
         {
             InitializeComponent();
+            TaskName.Text = taskName;
+            TaskInformation.Text = taskInfo;
         }
     }
 }

@@ -15,13 +15,20 @@ using System.Windows.Shapes;
 namespace DI_11
 {
     /// <summary>
-    /// Логика взаимодействия для Dispatches.xaml
+    /// Логика взаимодействия для AddTask.xaml
     /// </summary>
-    public partial class Dispatches : Window
+    public partial class AddTask : Window
     {
-        public Dispatches()
+        Stocks st;
+        public AddTask(Stocks st)
         {
             InitializeComponent();
+            this.st = st;
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            st.addTask(NameTaskBox.Text, InfoTaskBox.Text);
+            this.Close();
         }
     }
 }
