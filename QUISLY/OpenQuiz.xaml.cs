@@ -36,7 +36,7 @@ namespace QUISLY
                 questionText.Text = $"{currentTest.questions[currentIndex].questionName}\n{currentTest.questions[currentIndex].question}";
                 isAnsver = false;
             }
-            else {
+            else if (!(currentIndex == 0)) {
                 questionText.Text = $"{currentTest.questions[currentIndex - 1].questionName}\n{currentTest.questions[currentIndex - 1].question}";
                 isAnsver = false;
                 currentIndex = currentTest.questions.Count - 1;
