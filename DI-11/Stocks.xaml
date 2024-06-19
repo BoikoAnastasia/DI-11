@@ -26,13 +26,21 @@
         <ListBox Background="#D9D9D9" x:Name="ProcessList" Grid.Column="1" Margin="0,36,0,0" Grid.RowSpan="2"/>
         <ListBox Background="#D9D9D9" x:Name="ReadyList" Grid.Column="2" Margin="0,36,0,0" Grid.RowSpan="2"/>
         <ListBox Background="#D9D9D9" x:Name="InventoryList" Grid.Column="3" Margin="0,36,0,0" Grid.RowSpan="2"/>
-        <Button Click="Button_Click" Background="#363299" Margin="10,7,167,10" Grid.Row="2">
+        <Button Click="Button_Click" Background="#363299" Margin="10,10,167,7" Grid.Row="2">
+            
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
                 </Style>
             </Button.Resources>
             <TextBlock Foreground="White" FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Center" Width="26">+</TextBlock>
+        </Button>
+        <Button Background="#363299" Grid.Column="3" Grid.Row="2" Width="100" Height="52" Content="Назад" Foreground="White" Click="Button_Click_1">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
         </Button>
     </Grid>
 

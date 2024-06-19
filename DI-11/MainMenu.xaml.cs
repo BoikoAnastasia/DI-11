@@ -19,9 +19,19 @@ namespace DI_11
     /// </summary>
     public partial class MainMenu : Window
     {
+       
         public MainMenu()
         {
+            
             InitializeComponent();
+           
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Stocks st = new Stocks();
+            st.Show();
+            this.Close();
         }
     }
 }

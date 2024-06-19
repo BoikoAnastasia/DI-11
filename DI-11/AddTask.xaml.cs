@@ -14,9 +14,9 @@ using System.Windows.Shapes;
 
 namespace DI_11
 {
-    /// <summary>
-    /// Логика взаимодействия для AddTask.xaml
-    /// </summary>
+    /// <summary> 
+    /// Interaction logic for AddTask.xaml 
+    /// </summary> 
     public partial class AddTask : Window
     {
         Stocks st;
@@ -25,9 +25,10 @@ namespace DI_11
             InitializeComponent();
             this.st = st;
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            st.addTask(NameTaskBox.Text, InfoTaskBox.Text);
+            st.addTask(NameBox.Text, InfoBox.Text);
             this.Close();
         }
     }

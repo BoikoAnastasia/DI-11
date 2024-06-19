@@ -22,12 +22,13 @@ namespace DI_11
     {
         bool isSelected = false;
         List<DoElement> ListElements = new List<DoElement>();
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-H3UE754; Initial Catalog=ToDo; Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-H3UE754; Initial Catalog=StockControl; Integrated Security=True");
         public Stocks()
         {
+
             InitializeComponent();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select nameTask, description, typeTask, id from Tasks", conn);
+            SqlCommand cmd = new SqlCommand("select nameProduct, description, typeProduct, id from Products", conn);
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -44,9 +45,10 @@ namespace DI_11
             DoList.Items.Clear();
             ProcessList.Items.Clear();
             ReadyList.Items.Clear();
+            InventoryList.Items.Clear();
+
             for (int i = 0; i < ListElements.Count(); i++)
             {
-
                 if (ListElements[i].typeTask == 0)
                 {
                     DoList.Items.Add(setToFrame(ListElements[i]));
@@ -55,9 +57,13 @@ namespace DI_11
                 {
                     ProcessList.Items.Add(setToFrame(ListElements[i]));
                 }
-                else
+                else if (ListElements[i].typeTask == 2)
                 {
-                    ReadyList.Items.Add((setToFrame(ListElements[i])));
+                    ReadyList.Items.Add(setToFrame(ListElements[i]));
+                }
+                else if (ListElements[i].typeTask == 3)
+                {
+                    InventoryList.Items.Add(setToFrame(ListElements[i]));
                 }
             }
         }
@@ -96,18 +102,26 @@ namespace DI_11
         //Метод добавления задачи принимающий имя и описание задачи, так же метод добавляет задачу в бд
         public void addTask(string nameTask, string taskInfo)
         {
-            SqlCommand cmd = new SqlCommand($"insert into Tasks (id, nameTask, description, typeTask ) values ({ListElements.Count}, '{nameTask}', '{taskInfo}', 0)", conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-            reader.Close();
-            DoElement doEl = new DoElement(nameTask, taskInfo, this, 0, 0);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Products (nameProduct, description, typeProduct) VALUES (@nameTask, @description, @typeTask); SELECT SCOPE_IDENTITY();", conn);
+            cmd.Parameters.AddWithValue("@nameTask", nameTask);
+            cmd.Parameters.AddWithValue("@description", taskInfo);
+            cmd.Parameters.AddWithValue("@typeTask", 0);
+
+            // Execute the command and retrieve the new ID
+            int newTaskId = Convert.ToInt32(cmd.ExecuteScalar());
+
+            // Create the new DoElement and add it to the list
+            DoElement doEl = new DoElement(nameTask, taskInfo, this, 0, newTaskId);
             ListElements.Add(doEl);
+
+            // Update the UI list
             updateList();
         }
 
         //Метод вызывается при перемещении задачи в разные столбцы тем самым обновляя её статус
         public void updateTaskType(int type, int id)
         {
-            SqlCommand cmd = new SqlCommand($"UPDATE Tasks set typeTask = {type} where id = {id}", conn);
+            SqlCommand cmd = new SqlCommand($"UPDATE Products set typeProduct = {type} where id = {id}", conn);
             SqlDataReader reader = cmd.ExecuteReader();
             reader.Close();
 
@@ -115,11 +129,19 @@ namespace DI_11
         //Метод удаления задачи
         public void deleteTask(int id)
         {
-            SqlCommand cmd = new SqlCommand($"DELETE FROM Tasks where id = {id}", conn);
+            SqlCommand cmd = new SqlCommand($"DELETE FROM Products where id = {id}", conn);
             SqlDataReader reader = cmd.ExecuteReader();
             reader.Close();
             ListElements.Remove(ListElements[id]);
             updateList();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainMenu mm = new MainMenu();
+            mm.Show();
+            this.Close();
+        }
     }
 }
+

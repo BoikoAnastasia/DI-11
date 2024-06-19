@@ -11,8 +11,8 @@
         <RowDefinition></RowDefinition>
         <RowDefinition Height="9*"></RowDefinition>
     </Grid.RowDefinitions>
-    <TextBlock Foreground="White" x:Name="TaskName" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">Task</TextBlock>
-    <TextBlock Foreground="White" Grid.Row="1" x:Name="TaskInformation" FontSize="16" HorizontalAlignment="Center">Task</TextBlock>
+    <TextBlock Foreground="White" x:Name="TaskName" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">Product</TextBlock>
+        <TextBlock Foreground="White" Grid.Row="1" x:Name="TaskInformation" FontSize="16" HorizontalAlignment="Center">Product</TextBlock>
 
     </Grid>
 </Window>

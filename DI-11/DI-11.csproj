@@ -61,9 +61,7 @@
     <Compile Include="DoElement.xaml.cs">
       <DependentUpon>DoElement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InventoryChecks.xaml.cs">
-      <DependentUpon>InventoryChecks.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Products.cs" />
     <Compile Include="Stocks.xaml.cs">
       <DependentUpon>Stocks.xaml</DependentUpon>
     </Compile>
@@ -75,10 +73,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DoElement.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="InventoryChecks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
