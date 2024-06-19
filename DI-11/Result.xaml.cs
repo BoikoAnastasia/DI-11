@@ -15,16 +15,29 @@ using System.Data.SqlClient;
 
 namespace DI_11
 {
+    
+
     public partial class Result : Window
     {
-        public Result()
+        private int _result; 
+
+        public Result(int result)
         {
             InitializeComponent();
+            _result = result;
 
-            int result = 85;
-            resultLabel.Content = $"Вы набрали {result} баллов из 100. Ваша оценка: {CalculateGrade(result)}";
+            
+            resultLabel.Content = $"Вы набрали {_result} баллов из 100. Ваша оценка: {CalculateGrade(_result)}";
 
-            string connectionString = "Data Source=3218EC08;Initial Catalog=Test;Integrated Security=True";
+            SaveResultToDatabase(_result);
+        }
+
+       
+
+        private void SaveResultToDatabase(int result)
+        {
+            string connectionString = "Data Source=LAPTOP-V0AGQKUF\\SLAUUUIK;Initial Catalog=Test;Integrated Security=True";
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -34,21 +47,19 @@ namespace DI_11
                 command.ExecuteNonQuery();
             }
         }
-
         private string CalculateGrade(int result)
         {
-            if (result >= 90)
+            if (result >= 5)
                 return "A";
-            else if (result >= 80)
+            else if (result >= 4)
                 return "B";
-            else if (result >= 70)
+            else if (result >= 3)
                 return "C";
-            else if (result >= 60)
+            else if (result >= 2)
                 return "D";
             else
                 return "F";
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             HomePage homePage = new HomePage();

@@ -22,7 +22,7 @@ namespace DI_11
 
     public partial class Vhod : Window
     {
-        private const string ConnectionString = "Data Source=3218EC08;Initial Catalog=Test;Integrated Security=True";
+        private const string ConnectionString = "Data Source=LAPTOP-V0AGQKUF\\SLAUUUIK;Initial Catalog=Test;Integrated Security=True";
         public Vhod()
         {
             InitializeComponent();

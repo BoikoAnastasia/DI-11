@@ -19,7 +19,7 @@ namespace DI_11
     public partial class Testing : Window
     {
         private readonly SqlConnection connection;
-        private const string ConnectionString = "Data Source=3218EC08;Initial Catalog=Test;Integrated Security=True";
+        private const string ConnectionString = "Data Source=LAPTOP-V0AGQKUF\\SLAUUUIK;Initial Catalog=Test;Integrated Security=True";
 
         public Testing()
         {
@@ -32,7 +32,7 @@ namespace DI_11
             string testName = name.Text;
             string questionText = name_one.Text;
             string correctAnswerText = correctAnswerTextBox.Text;
-            List<string> incorrectAnswers = new List<string> { incorrectAnswer1TextBox.Text, incorrectAnswer2TextBox.Text, incorrectAnswer3TextBox.Text };
+            List<string> incorrectAnswers = new List<string> { correctAnswerTextBox.Text, incorrectAnswer1TextBox.Text, incorrectAnswer2TextBox.Text, incorrectAnswer3TextBox.Text };
 
             if (!string.IsNullOrEmpty(questionText) && !string.IsNullOrEmpty(correctAnswerText) && incorrectAnswers.All(answer => !string.IsNullOrEmpty(answer)))
             {
