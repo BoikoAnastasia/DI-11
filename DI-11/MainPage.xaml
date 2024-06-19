@@ -55,7 +55,7 @@
         <Button Content="Customers" Grid.Row="2" Background="Transparent" BorderBrush="Transparent" FontSize="18" FontFamily="Cambria" />
         <Button Content="Orders" Grid.Row="3" Background="Transparent" BorderBrush="Transparent" FontSize="18" FontFamily="Cambria"/>
         <Button Content="Contacts" Grid.Row="4" Background="Transparent" BorderBrush="Transparent" FontSize="18" FontFamily="Cambria"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="4" Width="600"/>
+        <DataGrid x:Name="DataClients" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="4" Width="600" SelectionChanged="DataGrid_SelectionChanged"/>
 
 
     </Grid>
