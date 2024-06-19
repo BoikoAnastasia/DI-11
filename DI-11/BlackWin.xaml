@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DI_11"
         mc:Ignorable="d"
-        Title="BlackWin" Height="450" Width="800" Background="Black">
-    <Grid>
-        
+        Title="BlackWin" Height="600" Width="800" Background="Black">
+    <Grid Margin="0,0,0,8">
+        <Button FontSize="25" Foreground="GreenYellow" Content="добавить фото..." HorizontalAlignment="Center" VerticalAlignment="Top" Height="115" Width="800" Background="Gray" Click="Button_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="287,135,0,0" TextWrapping="Wrap" Text="Илья Красницкий" VerticalAlignment="Top" Width="216" Height="43" Foreground="White" FontSize="25"/>
+        <Image Margin="510,121,262,407" Source="/Image2.png" Stretch="Fill" RenderTransformOrigin="-0.262,0.341">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="4.505"/>
+                    <RotateTransform Angle="12.45"/>
+                    <TranslateTransform X="4.645" Y="2.332"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button Content="Дружить" HorizontalAlignment="Left" Margin="42,135,0,0" VerticalAlignment="Top" Background="GreenYellow" Width="78" Height="30"/>
+        <Button FontSize="20" Content=":" HorizontalAlignment="Left" Margin="137,135,0,0" VerticalAlignment="Top" Background="GreenYellow" Width="37" Height="30"/>
+        <Image Margin="724,135,34,399" Source="/Image3.png" Stretch="Fill"/>
+        <Rectangle HorizontalAlignment="Center" Height="100" Margin="0,115,0,0" Stroke="GreenYellow" VerticalAlignment="Top" Width="800" />
+        <TextBlock HorizontalAlignment="Left" Margin="58,251,0,0" TextWrapping="Wrap" Text="Илья Красницкий" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="58,267,0,0" TextWrapping="Wrap" Text="8 Июня 2021" VerticalAlignment="Top" Foreground="Gray"/>
+        <Image Margin="19,250,747,288" Source="/Image4.png" Stretch="Fill" RenderTransformOrigin="-3.33,-5.865"/>
+        <Button Content="Пост" HorizontalAlignment="Left" Margin="81,300,0,0" VerticalAlignment="Top" Height="230" Width="624" Background="Gray"/>
+        <Button Content="Дружить" HorizontalAlignment="Left" Margin="42,135,0,0" VerticalAlignment="Top" Background="GreenYellow" Width="78" Height="30"/>
+        <Button Content="Лайк" HorizontalAlignment="Left" Margin="81,546,0,0" VerticalAlignment="Top" Background="GreenYellow" Width="78" Height="30"/>
+        <Button Content="89" HorizontalAlignment="Left" Margin="174,546,0,0" VerticalAlignment="Top" Background="GreenYellow" Width="41" Height="30" Click="Button_Click_1"/>
+        <Button Content="89" HorizontalAlignment="Left" Margin="664,546,0,0" VerticalAlignment="Top" Background="GreenYellow" Width="41" Height="30" Click="Button_Click_1"/>
+        <Button Content="Перейти в ленту" HorizontalAlignment="Left" Margin="365,259,0,0" VerticalAlignment="Top" Background="Black" Foreground="White" Click="Button_Click_2"  />
+
     </Grid>
 </Window>

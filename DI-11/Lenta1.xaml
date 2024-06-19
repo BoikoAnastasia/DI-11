@@ -1,0 +1,25 @@
+﻿<Window x:Class="DI_11.Lenta1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DI_11"
+        mc:Ignorable="d"
+        Title="Lenta1" Height="450" Width="800" Background="Black">
+    <Grid>
+        <Image Margin="10,10,750,380" Source="/Image6.png" Stretch="Fill"/>
+        <Image Margin="68,10,692,380" Source="/Image6.png" Stretch="Fill"/>
+        <Image Margin="131,10,629,380" Source="/Image6.png" Stretch="Fill"/>
+        <Button Content="Выложить" HorizontalAlignment="Left" Margin="31,92,0,0" VerticalAlignment="Top" Width="77" Background="GreenYellow"/>
+        <TextBlock HorizontalAlignment="Left" Margin="330,85,0,0" TextWrapping="Wrap" Text="Илья Красницкий" VerticalAlignment="Top" Height="46" Width="208" Foreground="White" FontSize="25"/>
+        <Button Content="На свою" HorizontalAlignment="Left" Margin="666,22,0,0" VerticalAlignment="Top" Width="76" Background="GreenYellow" Click="Button_Click"/>
+        <Button Content="Фото..." HorizontalAlignment="Center" Margin="0,154,0,0" VerticalAlignment="Top" Width="552" Height="211"/>
+        <TextBlock HorizontalAlignment="Left" Margin="269,22,0,0" TextWrapping="Wrap" Text="Истории" VerticalAlignment="Top" Foreground="White"/>
+        <Button Content="Лайк" HorizontalAlignment="Left" Margin="124,388,0,0" VerticalAlignment="Top" Width="77" Background="GreenYellow"/>
+        <Button Content="84" HorizontalAlignment="Left" Margin="206,388,0,0" VerticalAlignment="Top" Width="36" Background="GreenYellow"/>
+        <Button Content="/" HorizontalAlignment="Left" Margin="640,388,0,0" VerticalAlignment="Top" Width="36" Background="GreenYellow"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="289,92,0,0" VerticalAlignment="Top" Width="36" Background="White"/>
+
+    </Grid>
+</Window>
+  
