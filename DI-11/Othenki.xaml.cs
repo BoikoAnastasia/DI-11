@@ -20,7 +20,7 @@ namespace DI_11
     /// </summary>
     public partial class Othenki : Window
     {
-        private string _connectionString = "Data Source=LAPTOP-V0AGQKUF\\SLAUUUIK;Initial Catalog=Test;Integrated Security=True";
+        private string _connectionString = "Data Source=3218EC08;Initial Catalog=Test;Integrated Security=True";
 
         public Othenki()
         {

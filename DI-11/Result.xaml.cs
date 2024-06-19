@@ -24,7 +24,7 @@ namespace DI_11
             int result = 85;
             resultLabel.Content = $"Вы набрали {result} баллов из 100. Ваша оценка: {CalculateGrade(result)}";
 
-            string connectionString = "Data Source=YourServer;Initial Catalog=YourDatabase;Integrated Security=True";
+            string connectionString = "Data Source=3218EC08;Initial Catalog=Test;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

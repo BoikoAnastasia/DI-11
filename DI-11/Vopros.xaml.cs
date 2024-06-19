@@ -1,75 +1,69 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using System.Windows;
 using System.Windows.Controls;
-using System.Collections.Generic;
 
 namespace DI_11
 {
-    public class TestContext : DbContext
-    {
-        public DbSet<Question> Questions { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=LAPTOP-V0AGQKUF\\SLAUUUIK;Initial Catalog=Test;Integrated Security=True;");
-        }
-    }
-
-    public class Question
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-        public List<Answer> Answers { get; set; } = new List<Answer>(); 
-        public string CorrectAnswer { get; set; }
-    }
-
-    public class Answer
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-    }
-
     public partial class Vopros : Window
     {
-        private TestContext _context;
-        private int _score = 0;
-        private int _questionIndex = 0;
+        private string _connectionString = "Your Connection String Here"; // Замените на свою строку подключения
         private List<Question> _questions;
+        private int _currentQuestionIndex = 0;
+        private int _score = 0;
 
-        public Vopros(TestContext context)
+        public Vopros()
         {
-            _context = context;
             InitializeComponent();
-
-            try
-            {
-                _questions = _context.Questions
-                    .Include(q => q.Answers) 
-                    .ToList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка при загрузке вопросов: {ex.Message}");
-            }
-
+            LoadQuestions();
             DisplayQuestion();
+        }
+
+        private void LoadQuestions()
+        {
+            _questions = new List<Question>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                // Запрос для получения вопросов из таблицы "Questions"
+                string query = "SELECT Id, Text, Answer FROM Questions";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    _questions.Add(new Question
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Text = reader["Text"].ToString(),
+                        Answer = reader["Answer"].ToString()
+                    });
+                }
+
+                reader.Close();
+            }
         }
 
         private void DisplayQuestion()
         {
-            if (_questionIndex < _questions.Count)
+            if (_currentQuestionIndex < _questions.Count)
             {
-                var question = _questions[_questionIndex];
-                questionTextBlock.Text = question.Text;
+                Question currentQuestion = _questions[_currentQuestionIndex];
+                questionTextBlock.Text = currentQuestion.Text;
 
+                // Очистка ListBox
                 answersListBox.Items.Clear();
 
-                foreach (var answer in question.Answers)
-                {
-                    answersListBox.Items.Add(answer.Text);
-                }
+                // Заполнение ListBox вариантами ответа (замените эти примеры на получение данных из базы данных)
+                answersListBox.Items.Add("Вариант 1");
+                answersListBox.Items.Add("Вариант 2");
+                answersListBox.Items.Add("Вариант 3");
+                answersListBox.Items.Add("Вариант 4");
             }
             else
             {
@@ -77,32 +71,39 @@ namespace DI_11
             }
         }
 
-        private void ShowResult()
+        private void CheckAnswerButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Тест завершен. Ваш итоговый балл: {_score} из {_questions.Count}");
-            Close();
-        }
+            // Получение выбранного ответа из ListBox
+            string userAnswer = answersListBox.SelectedItem?.ToString() ?? string.Empty; //  Проверка на null
 
-        private void AnswerButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Получаем выбранный ответ из ListBox
-            string userAnswer = answersListBox.SelectedItem?.ToString() ?? string.Empty;
+            Question currentQuestion = _questions[_currentQuestionIndex];
 
-            var question = _questions[_questionIndex];
-
-            if (userAnswer.ToLower() == question.CorrectAnswer.ToLower())
+            if (userAnswer.ToLower() == currentQuestion.Answer.ToLower())
             {
                 MessageBox.Show("Правильно!");
                 _score++;
             }
             else
             {
-                MessageBox.Show("Неправильно. Правильный ответ: " + question.CorrectAnswer);
+                MessageBox.Show("Неправильно. Правильный ответ: " + currentQuestion.Answer);
             }
 
-            _questionIndex++;
-            answersListBox.Items.Clear();
+            _currentQuestionIndex++;
+            //answersListBox.Clear(); // Очистка ListBox после ответа
             DisplayQuestion();
+        }
+
+        private void ShowResult()
+        {
+            MessageBox.Show($"Тест завершен. Ваш результат: {_score} из {_questions.Count}");
+        }
+            // Вы можете добавить здесь дополнительную логику,
+
+    public class Question
+        {
+            public int Id { get; set; }
+            public string Text { get; set; }
+            public string Answer { get; set; }
         }
     }
 }

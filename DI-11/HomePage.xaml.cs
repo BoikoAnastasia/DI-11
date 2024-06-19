@@ -26,8 +26,8 @@ namespace DI_11
 
         private void Open(object sender, RoutedEventArgs e)
         {
-            TestContext dbContext = new TestContext(); // Создаем экземпляр TestDbContext
-            Vopros vopros = new Vopros(dbContext); // Передаем dbContext через конструктор
+            //TestContext dbContext = new TestContext(); // Создаем экземпляр TestDbContext
+            Vopros vopros = new Vopros(); // Передаем dbContext через конструктор
             vopros.Show();
             Close();
         }
