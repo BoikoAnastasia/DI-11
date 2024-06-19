@@ -171,6 +171,39 @@ namespace DI_11
                 connection.Close();
             }
         }
+        public List<Contact> SearchContactsByName(string name)
+        {
+            List<Contact> foundContacts = new List<Contact>();
+            try
+            {
+                connection.Open();
+                string query = "SELECT Name, PhoneNumber FROM Contacts WHERE Name LIKE @Name";
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", "%" + name + "%");
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            foundContacts.Add(new Contact
+                            {
+                                Name = reader["Name"].ToString(),
+                                PhoneNumber = reader["PhoneNumber"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при поиске контактов: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return foundContacts;
+        }
 
 
     }

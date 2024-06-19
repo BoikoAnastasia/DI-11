@@ -12,13 +12,22 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid Background="LightGoldenrodYellow" >
+        <Grid Background="#824E4E" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="UserNameBlock" VerticalAlignment="Center" Text="Имя пользователя" FontSize="20" Padding="10,2"/>
-            <Button Grid.Column="1" Click="Exit_From_User_Button_Click" Content="Выйти">
+            <TextBlock x:Name="UserNameBlock" Foreground="White" Grid.Column="0" VerticalAlignment="Center" Text="Имя пользователя" FontSize="20" Padding="10,2" Margin="0,0,200,0"/>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="Search" FontSize="16" Margin="0,5,5,5" Grid.Column="0"/>
+                <Button Content="Поиск..." Grid.ColumnSpan="2" Margin="133,0,10,0" Click="Search_Click"/>
+            </Grid>
+            <Button Grid.Column="2" Click="Exit_From_User_Button_Click" Background="Red" Foreground="white" Content="Выйти">
               
             </Button>
         </Grid>
@@ -33,7 +42,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBox Grid.Column="1" FontSize="25" Name="TextMessageBox"/>
-            <Button Grid.Column="2" Content="Добавить" FontSize="20" Click="Add_Contact_Click"/>
+            <Button Grid.Column="2" Content="Добавить" Background="Green" Foreground="White" FontSize="20" Click="Add_Contact_Click"/>
         </Grid>
     </Grid>
 </Window>

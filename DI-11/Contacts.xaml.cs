@@ -50,23 +50,23 @@ namespace DI_11
                     Margin = new Thickness(5)
                 };
 
-                // Кнопка для удаления контакта
+               
                 Button deleteButton = new Button
                 {
                     Content = "Удалить",
                     Margin = new Thickness(5),
-                    Tag = contact  // Используем Tag для хранения данных контакта
+                    Tag = contact  
                 };
-                deleteButton.Click += DeleteContact_Click;  // Обработчик клика
+                deleteButton.Click += DeleteContact_Click;  
 
-                // Кнопка для редактирования контакта
+               
                 Button editButton = new Button
                 {
                     Content = "Редактировать",
                     Margin = new Thickness(5),
-                    Tag = contact  // Используем Tag для хранения данных контакта
+                    Tag = contact 
                 };
-                editButton.Click += EditContact_Click;  // Обработчик клика
+                editButton.Click += EditContact_Click; 
 
                 contactPanel.Children.Add(nameBlock);
                 contactPanel.Children.Add(phoneBlock);
@@ -91,6 +91,46 @@ namespace DI_11
                 MessageBox.Show("Ошибка при удалении контакта");
             }
         }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            string searchQuery = Search.Text;
+            if (string.IsNullOrWhiteSpace(searchQuery))
+            {
+                LoadContacts();
+                return;
+            }
+
+            var foundContacts = dbManager.SearchContactsByName(searchQuery);
+            DisplayContacts(foundContacts);
+        }
+
+        private void DisplayContacts(List<Contact> contacts)
+        {
+            MessagList.Children.Clear();
+
+            foreach (var contact in contacts)
+            {
+                StackPanel contactPanel = new StackPanel { Orientation = Orientation.Horizontal };
+                TextBlock nameBlock = new TextBlock
+                {
+                    Text = contact.Name,
+                    FontSize = 16,
+                    Margin = new Thickness(5)
+                };
+                TextBlock phoneBlock = new TextBlock
+                {
+                    Text = contact.PhoneNumber,
+                    FontSize = 16,
+                    Margin = new Thickness(5)
+                };
+
+                contactPanel.Children.Add(nameBlock);
+                contactPanel.Children.Add(phoneBlock);
+                MessagList.Children.Add(contactPanel); // Добавьте новые элементы в UI
+            }
+        }
+
 
 
         private void EditContact_Click(object sender, RoutedEventArgs e)
