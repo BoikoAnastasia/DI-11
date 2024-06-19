@@ -1,0 +1,39 @@
+﻿<Window x:Class="DI_11.Contacts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DI_11"
+        mc:Ignorable="d"
+        Title="Contacts" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Background="LightGoldenrodYellow" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="UserNameBlock" VerticalAlignment="Center" Text="Имя пользователя" FontSize="20" Padding="10,2"/>
+            <Button Grid.Column="1" Click="Exit_From_User_Button_Click" Content="Выйти">
+              
+            </Button>
+        </Grid>
+        <ScrollViewer Grid.Row="1" Name="Scrol">
+            <StackPanel  Name="MessagList"/>
+        </ScrollViewer>
+
+        <Grid Grid.Row="2" Background="LightGoldenrodYellow">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="1" FontSize="25" Name="TextMessageBox"/>
+            <Button Grid.Column="2" Content="Добавить" FontSize="20" Click="Add_Contact_Click"/>
+        </Grid>
+    </Grid>
+</Window>
