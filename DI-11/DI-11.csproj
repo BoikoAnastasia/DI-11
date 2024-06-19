@@ -79,6 +79,11 @@
     <Compile Include="Class2.cs" />
     <Compile Include="Class3.cs" />
     <Compile Include="FileName.cs" />
+    <Compile Include="IlyaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IlyaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Lenta1.xaml.cs">
       <DependentUpon>Lenta1.xaml</DependentUpon>
     </Compile>
@@ -105,6 +110,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="IlyaDataSet.xsc">
+      <DependentUpon>IlyaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="IlyaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IlyaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IlyaDataSet.xss">
+      <DependentUpon>IlyaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

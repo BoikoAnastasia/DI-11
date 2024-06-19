@@ -32,10 +32,10 @@
         <TextBlock  HorizontalAlignment="Left" Margin="306,39,0,0" TextWrapping="Wrap" Text="Sign in to Malibu" VerticalAlignment="Top" Foreground="White" FontSize="25" Grid.ColumnSpan="2"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="482,14,0,0" TextWrapping="Wrap" Text="Sing in" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="531,14,0,0" TextWrapping="Wrap" Text="FAQ" VerticalAlignment="Top" Foreground="White"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="248,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="304" Grid.ColumnSpan="2" Height="80" Background="Gray" Password="" />
+        <PasswordBox x:Name="password" HorizontalAlignment="Left" Margin="248,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="304" Grid.ColumnSpan="2" Height="80" Background="Gray" Password="" />
         <Button Content="Войти" HorizontalAlignment="Left"   Margin="248,10,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="12.733,2.675" Grid.ColumnSpan="2" Width="304" Click="Button_Click" Height="30" Background="GreenYellow"/>
         <RadioButton Content="Сохранить пользователя?" HorizontalAlignment="Left" Margin="248,114,0,0" Grid.Row="1" VerticalAlignment="Top" Height="40" Grid.RowSpan="2" Background="White " Foreground="White" Grid.ColumnSpan="2" Width="168"/>
-        <TextBox HorizontalAlignment="Left" Margin="248,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="304" Grid.ColumnSpan="2" Height="27" Background="Gray" />
+        <TextBox x:Name="login" HorizontalAlignment="Left" Margin="248,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="304" Grid.ColumnSpan="2" Height="27" Background="Gray" />
         <TextBlock HorizontalAlignment="Left" Margin="209,114,0,0" TextWrapping="Wrap" Text="Логин" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" Margin="202,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Grid.Row="1"><Run Language="ru-ru" Text="Пароль"/></TextBlock>
     </Grid>
