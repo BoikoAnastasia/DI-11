@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace DI_11
     /// </summary>
     public partial class MainWindow : Window
     {
+       public object id = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,11 +32,42 @@ namespace DI_11
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs ex)
         {
-            var MainPage = new MainPage();
-            MainPage.Show();    
-            this.Close();
+            try
+            {
+
+                SqlConnection connection = new SqlConnection("Server=3218EC11\\SSQLSERVER;Database=ZelebobaCP_22.05.24;Trusted_Connection=Yes;");
+                connection.Open();
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM Users where Name='{Login.Text}' and Password='{Password.Text}'", connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                int i = 0;
+
+                while (reader.Read())
+                {
+                    i++;
+                    id = reader[4];
+                }
+
+                if (i == 1)
+                {
+                    var MainPage = new MainPage(id);
+                    MainPage.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("INCORRECT PASSWORD OR USER ID", "Authentication Failed");
+                }
+                connection.Close();
+            }
+
+            catch (Exception err)
+            {
+                Console.WriteLine("Catch Block = " + err);
+            }
+
         }
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)

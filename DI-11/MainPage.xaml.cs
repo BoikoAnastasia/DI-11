@@ -20,12 +20,13 @@ namespace DI_11
     /// Логика взаимодействия для MainPage.xaml
     /// </summary>
     public partial class MainPage : Window
-    {
+    {   
+        public object mainId;
         public const string ConnectionString = "Server=3218EC11\\SSQLSERVER;Database=ZelebobaCP_22.05.24;Trusted_Connection=Yes;";
-        public MainPage()
+
+        public MainPage(object id)
         {
             InitializeComponent();
-
             SqlConnection connection = new SqlConnection("Server=3218EC11\\SSQLSERVER;Database=ZelebobaCP_22.05.24;Trusted_Connection=Yes;");
 
             connection.Open();
@@ -34,15 +35,14 @@ namespace DI_11
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
-
+            mainId = id;
             DataClients.ItemsSource = dataTable.DefaultView;
 
-
-        }
+    }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var userPage = new UserPage();
+            var userPage = new UserPage(mainId);
             userPage.Show();
             this.Close();
         }

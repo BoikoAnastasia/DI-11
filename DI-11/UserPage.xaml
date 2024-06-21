@@ -41,7 +41,7 @@
         </StackPanel>
         <Border Padding="5" BorderThickness="1" Background="White" CornerRadius="20" Grid.Column="1" Grid.ColumnSpan="2" Height="30" Width="250">
             <StackPanel Orientation="Horizontal" Background="Transparent">
-                <TextBox TextWrapping="Wrap" TextChanged="TextBox_TextChanged" Background="Transparent" BorderBrush="Transparent" Margin="0,0,20,0" Width="200" Height="18"/>
+                <TextBox TextWrapping="Wrap" Background="Transparent" BorderBrush="Transparent" Margin="0,0,20,0" Width="200" Height="18"/>
                 <Image Source="icons8-поиск-50.png" Width="20" Height="20"/>
             </StackPanel>
         </Border>
@@ -59,16 +59,14 @@
         </StackPanel>
         <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Width="100" Height="35" Text="Contacts" FontSize="25" FontFamily="Cambria" FontWeight="Black" Margin="10, 10,10,10"></TextBlock>
         <StackPanel Grid.Row="3" Grid.Column="1" Grid.RowSpan="3" Orientation="Vertical">
-            <TextBlock Text="E-mail:" Margin="10" FontFamily="Cambria" FontSize="18"></TextBlock>
             <TextBlock Text="Phone number: " Margin="10" FontFamily="Cambria" FontSize="18"></TextBlock>
             <TextBlock Text="Name: " Margin="10" FontFamily="Cambria" FontSize="18"></TextBlock>
             <TextBlock Text="Surname: " Margin="10" FontFamily="Cambria" FontSize="18"></TextBlock>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" Orientation="Vertical">
-            <TextBlock Margin="10" FontFamily="Cambria" FontSize="18"></TextBlock>
-            <TextBlock Margin="10" FontFamily="Cambria" FontSize="18"></TextBlock>
-            <TextBlock Margin="10" FontFamily="Cambria" FontSize="18"></TextBlock>
-            <TextBlock Margin="10" FontFamily="Cambria" FontSize="18"></TextBlock>
+            <TextBlock x:Name="textPhone" Margin="10" FontFamily="Cambria" FontSize="18"></TextBlock>
+            <TextBlock x:Name="textName" Margin="10" FontFamily="Cambria" FontSize="18"></TextBlock>
+            <TextBlock x:Name="textSurname" Margin="10" FontFamily="Cambria" FontSize="18"></TextBlock>
         </StackPanel>
     </Grid>
 </Window>
